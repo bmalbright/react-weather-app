@@ -14,7 +14,7 @@ import { removeCityID } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 
-Const SavedCities = () => {
+const SavedCities = () => {
     const {loading, data } = useQuery(QUERY_ME);
     const [removeCity, { error }] = useMutation(REMOVE_CITY);
 
@@ -74,7 +74,7 @@ Const SavedCities = () => {
                             <Card.Body>
                                 <Card.Title> {city.name}</Card.Title>
                                 <p className="small"> Cities: {city.names}</p>
-                                <Card.Text>{city.forcast}</Card.Text>
+                                <Card.Text>{city.forecast}</Card.Text>
                                 <Button
                                     className="btn-block btn-danger"
                                     onClick={() => handleDeleteCity(city.cityId)}
