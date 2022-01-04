@@ -159,4 +159,4 @@ const SearchCities = () => {
   );
 };
 
-export default SearchCities
+export default SearchCities;
