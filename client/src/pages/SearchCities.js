@@ -15,6 +15,8 @@ import { saveCityIds, getSavedCityIds } from "../utils/localStorage";
 
 import Auth from "../utils/auth";
 
+const apiKey = 'booger'
+
 const SearchCities = () => {
   // creates a state for holding returned weather API data
   const [searchedCities, setSearchedCities] = useState([]);
@@ -29,7 +31,7 @@ const SearchCities = () => {
   // set up useEffect hook to save 'savedCityIds' list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => savedCityIds(savedCityIds);
+    return () => saveCityIds(savedCityIds);
   });
 
   // creates a method to search for cities and set state on form submit
@@ -67,7 +69,7 @@ const SearchCities = () => {
   };
 
   // function to handle saving city to the database
-  const handleSavedCity = async (cityId) => {
+  const handleSaveCity = async (cityId) => {
     // find the city in 'searchedBooks' state by matching id
     const cityToSave = searchedCities.find((city) => city.cityId === cityId);
 

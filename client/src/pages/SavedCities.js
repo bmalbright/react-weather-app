@@ -10,7 +10,7 @@ import {
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import { REMOVE_CITY } from '../utils/mutations';
-import { removeCityID } from '../utils/localStorage';
+import { removeCityId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 
@@ -35,7 +35,7 @@ const SavedCities = () => {
             });
 
             // upon success, removes a city id from local storage
-            removeCityID(cityId);
+            removeCityId(cityId);
         } catch (err) {
             console.error(err);
         }

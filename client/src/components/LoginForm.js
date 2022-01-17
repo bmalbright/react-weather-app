@@ -1,15 +1,15 @@
 // see SignupForm.js for comments
 
-import React, { useState, useEffect } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
 
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 
-import Auth from "../utils/auth";
+import Auth from '../utils/auth';
 
 const LoginForm = () => {
-  const [userFormData, setUserFormDate] = useState({ email: "", password: "" });
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormatData({ ...userFormData, [name]: value });
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -34,7 +34,7 @@ const LoginForm = () => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
-      event.preventPropagation();
+      event.stopPropagation();
     }
 
     try {
@@ -48,10 +48,10 @@ const LoginForm = () => {
       console.error(e);
     }
 
-    // clears form values
+    // clear form values
     setUserFormData({
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     });
   };
 
@@ -64,20 +64,20 @@ const LoginForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your login credentials.
+          Something went wrong with your login credentials!
         </Alert>
         <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Your Email Address"
+            placeholder="Your email"
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
             required
           />
           <Form.Control.Feedback type="invalid">
-            A valid email address is required.
+            Email is required!
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -85,14 +85,14 @@ const LoginForm = () => {
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Your Password"
+            placeholder="Your password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback>
-            A valid password is required.
+          <Form.Control.Feedback type="invalid">
+            Password is required!
           </Form.Control.Feedback>
         </Form.Group>
         <Button

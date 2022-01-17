@@ -1,4 +1,4 @@
-export const getSavedCities = () => {
+export const getSavedCityIds = () => {
     const savedCityIds = localStorage.getItem('saved_cities')
     ? JSON.parse(localStorage.getItem('saved_cities'))
     :[];
@@ -6,15 +6,15 @@ export const getSavedCities = () => {
     return savedCityIds;
 };
 
-export const savedCityIds = (cityIdArr) => {
-    if (bookArr.length) {
+export const saveCityIds = (cityIdArr) => {
+    if (cityIdArr.length) {
         localStorage.setItem('saved_cities', JSON.stringify(cityIdArr));
     } else {
         localStorage.removeItem('saved_cities');
     }
 };
 
-export const removeCityID = (cityId) => {
+export const removeCityId = (cityId) => {
     const savedCityIds = localStorage.getItem('saved_cities')
      ? JSON.parse(localStorage.getItem('saved_books'))
      : null;
@@ -23,7 +23,7 @@ export const removeCityID = (cityId) => {
          return false;
      }
 
-     const updatedSavedCityIds = savedCityIds?.filter((savedCityId) => savedCityId !== cityID);
+     const updatedSavedCityIds = savedCityIds?.filter((savedCityId) => savedCityId !== cityId);
      localStorage.setItem('saved_cities', JSON.stringify(updatedSavedCityIds));
 
      return true;
