@@ -7,13 +7,13 @@ const CardExampleCard = ({weatherData}) => (
 <div className='main'>
     <p className='header'>{weatherData.name}</p>
         <div className='flex'>
-            <p className='day'>Day: {moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
+            <p className='day'>{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
             <p className='description'>Description: {weatherData.weather[0].description}</p>
         </div>
         <div className='flex'>
         <p className='temp'>Temperature: {weatherData.main.temp} &deg;F</p>
-        <p className='temp'>Humidity: {weatherData.main.humidity}</p>
-        <p className='temp'>Windspeed: {weatherData.main.windspeed}</p>
+        <p className='temp'>Humidity: {weatherData.main.humidity}%</p>
+        <p className='temp'>Windspeed: {weatherData.wind.speed}</p>
 
         </div>
         <div className='flex'>
